@@ -72,14 +72,15 @@ UsePAM yes
 ~~~
 
 ## Register your mobile phone
-Guide - In "**FORGEROCK® AUTHENTICATOR(OATH)**", Click on [Register Device](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#authn-mfa-register-device) button;
+- Log in to the AM console  (Example: https://yourAMserver:8443/openam?realm=yourRealm2fa);
+- Follow the guide, "**FORGEROCK® AUTHENTICATOR(OATH)**", [Register Device](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#authn-mfa-register-device);
 
 **Note:** If it is the first time that the user authenticates to the AM server, he must leave and perform new access to the server so that AM, in this second authentication, requests the registration of his mobile device.
 
 ## With your registered device
- * Perform ssh connection to the server where the pam_am_ssh_opt module is configured;
- * Put your LDAP password and key;
- * Put the OTP token - [Guide 4.6. Authenticating Using Multi-Factor Authentication](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#sec-mfa-authenticating)
+ * Perform ssh connection to the server where the **pam_am_ssh_opt** module is installed and configured;
+ * Put your **LDAP** password and key;
+ * Put the **OTP token** - [Guide 4.6. Authenticating Using Multi-Factor Authentication](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#sec-mfa-authenticating)
 
 If all goes well, you will receive authorization to access the server!
 
