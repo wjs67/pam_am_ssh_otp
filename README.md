@@ -71,9 +71,26 @@ ChallengeResponseAuthentication yes
 UsePAM yes
 ~~~
 
+## Register your mobile phone
+Guide - In "**FORGEROCK® AUTHENTICATOR(OATH)**", Click on [Register Device](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#authn-mfa-register-device) button;
 
+**Note:** If it is the first time that the user authenticates to the AM server, he must leave and perform new access to the server so that AM, in this second authentication, requests the registration of his mobile device.
 
-Main reference sources:
+## With your registered device
+ * Perform ssh connection to the server where the pam_am_ssh_opt module is configured;
+ * Put your LDAP password and key;
+ * Put the OTP token - [Guide 4.6. Authenticating Using Multi-Factor Authentication](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#sec-mfa-authenticating)
+
+If all goes well, you will receive authorization to access the server!
+
+If not, check if you typed something wrong and try again.
+
+If the problem persists :
+
+- Check the system log files;
+- Edit, run and analyze the outputs of the [curl_am_otp.sh script](https://github.com/wjs67/pam_am_ssh_otp/blob/master/curl_am_otp.sh);
+
+# My main sources of references used in this project:
 ~~~
 http://pubs.opengroup.org/onlinepubs/8329799/chap5.htm   - PAM Status Code
 http://www.freebsd.no/doc/en/articles/pam/article.html
@@ -83,9 +100,9 @@ https://backstage.forgerock.com/docs/am/5/AM-5-Oauth2-Guide.pdf
 https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#about-authentication-modules-and-chains
 https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#configure-authn-chains
 https://backstage.forgerock.com/docs/am/6.5/deployment-planning-guide/
-https://backstage.forgerock.com/docs/am/6.5/dev-guide/#chap-dev-introduction   - Introducing REST
+https://backstage.forgerock.com/docs/am/6.5/dev-guide/#chap-dev-introduction - Introducing REST
 https://ben.akrin.com/2FA/2ndfactor.c
-https://docs.oracle.com/cd/E19253-01/816-4863/emrbk/index.html   - PAM Writing Conversation Functions
+https://docs.oracle.com/cd/E19253-01/816-4863/emrbk/index.html - PAM Writing Conversation Functions
 https://forum.forgerock.com/2016/07/little-things-authentication-chains/
 https://github.com/CERN-CERT/pam_2fa/blob/master/module_conf.c
 https://github.com/HarryKodden/pam_otp
