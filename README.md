@@ -19,7 +19,7 @@ gcc -shared -o pam_am_ssh_otp.so -fPIC pam_am_ssh_otp.c -lpam -lcurl
 ld --shared -x -lc -o /lib64/security/pam_am_ssh_otp.so pam_am_ssh_otp.o -lpam -lcurl
 ~~~
 
- - More details, see "pam_am_ssh_otp.spec" file.
+ - More details, see [pam_am_ssh_otp.spec](https://github.com/wjs67/pam_am_ssh_otp/blob/master/pam_am_ssh_otp.c) file.
 
 RPM and source package are available at https://build.opensuse.org/package/show/home:wellingtonsilva67/pam_am_ssh_otp
   * Fedora 31 and 32;
