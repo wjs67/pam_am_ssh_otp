@@ -35,7 +35,7 @@ ld --shared -x -lc -o /lib64/security/pam_am_ssh_otp.so pam_am_ssh_otp.o -lpam -
   * SLE_15, SP1 and SP2;
   * OpenSUSE_Leap_15.2 .
 
-# Manual steps
+# Others manual steps
 
 ## Edit the file /etc/pam.d/sshd like this sample:
 ~~~
@@ -89,6 +89,8 @@ If the problem persists :
 
 - Check the system log files;
 - Edit, run and analyze the outputs of the [curl_am_otp.sh script](https://github.com/wjs67/pam_am_ssh_otp/blob/master/curl_am_otp.sh);
+
+**Note:** When in the production environment, for the purpose  of optimizing performance and resources, check the need to maintain the lines **"log_debug"** in the module **pam_am_ssh_otp**, if applicable, remember to recompile [pam_am_ssh_otp ] (https://github.com/wjs67/pam_am_ssh_otp/blob/master/pam_am_ssh_otp.c) with the necessary changes.
 
 # My main sources of references used in this project:
 ~~~
