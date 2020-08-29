@@ -90,7 +90,7 @@ If the problem persists :
 - Check the system log files;
 - Edit, run and analyze the outputs of the [curl_am_otp.sh script](https://github.com/wjs67/pam_am_ssh_otp/blob/master/curl_am_otp.sh);
 
-**Note:** When in the production environment, for the purpose  of optimizing performance and resources,  check the need to comment the lines **"log_debug"** in the module **pam_am_ssh_otp**, if applicable, remember to recompile [pam_am_ssh_otp ](https://github.com/wjs67/pam_am_ssh_otp/blob/master/pam_am_ssh_otp.c) with the necessary changes.
+**Note:** When in the production environment, for the purpose  of optimizing performance and resources,  check the need to comment the lines **"log_debug"** in the module **pam_am_ssh_otp**, if applicable, remember to recompile [pam_am_ssh_otp.c](https://github.com/wjs67/pam_am_ssh_otp/blob/master/pam_am_ssh_otp.c) with the necessary changes.
 
 # My main sources of references used in this project:
 ~~~
