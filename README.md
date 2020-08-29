@@ -3,8 +3,14 @@ Provide PAM module, configuring 2nd factor authentication on SSH with ForgeRock�
 
 If you find any strange behaviour, please give me feedback so that I can fix them. Also welcome suggestions and criticism.
 
-To compile:
- - build requires:
+# Premises:
+- Active LDAP and ForgeRock® Access Manager servers, as well as the communication between them;
+- ForgeRock® Authenticator installed on your mobile phone;
+- Authentication chain for OTP created on the AM server - [like this guide](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#authn-mfa-chain-oath); 
+- Objectclass and attributes from [oath2fa.schema](https://github.com/wjs67/pam_am_ssh_otp/blob/master/oath2fa.schema) in your LDAP server;
+
+# To compile:
+ ## build requires:
  ~~~
   * gcc 
   * make 
@@ -13,22 +19,25 @@ To compile:
   * libcurl-devel 
 ~~~
 
-- Command:
+## Command:
 ~~~
 gcc -shared -o pam_am_ssh_otp.so -fPIC pam_am_ssh_otp.c -lpam -lcurl
 ld --shared -x -lc -o /lib64/security/pam_am_ssh_otp.so pam_am_ssh_otp.o -lpam -lcurl
 ~~~
 
- - More details, see [pam_am_ssh_otp.spec](https://github.com/wjs67/pam_am_ssh_otp/blob/master/pam_am_ssh_otp.spec) file.
+- More details, see [pam_am_ssh_otp.spec](https://github.com/wjs67/pam_am_ssh_otp/blob/master/pam_am_ssh_otp.spec) file.
 
-RPM and source package are available at https://build.opensuse.org/package/show/home:wellingtonsilva67/pam_am_ssh_otp
+# RPM and source package 
+- Are available at https://build.opensuse.org/package/show/home:wellingtonsilva67/pam_am_ssh_otp , for the following distributions:
   * Fedora 31 and 32;
   * SLE_11_SP4;
   * SLE_12_SP4 and SP5;
   * SLE_15, SP1 and SP2;
   * OpenSUSE_Leap_15.2 .
 
-Edit the file /etc/pam.d/sshd like this sample:
+# Manual steps
+
+## Edit the file /etc/pam.d/sshd like this sample:
 ~~~
 #%PAM-1.0
 auth        required    pam_debug.so
@@ -55,14 +64,14 @@ The line would then look like:
 auth required pam_am_ssh_otp.so am_url=https://myserverAM:8443/openam/json/realms/root/authenticate?realm=my2fa cacerts=/etc/ssl/certs/chain_myAC.pem otp_size=6
 ~~~
 
-Check this parameters in /etc/ssh/sshd_config :
+## Check this parameters in /etc/ssh/sshd_config :
 ~~~
 AuthenticationMethods keyboard-interactive:pam
 ChallengeResponseAuthentication yes
 UsePAM yes
 ~~~
 
-If necessary, add file "oath2fa.schema" in your LDAP server.
+
 
 Main reference sources:
 ~~~
