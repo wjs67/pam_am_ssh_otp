@@ -6,8 +6,8 @@ If you find any strange behaviour, please give me feedback so that I can fix the
 # Premises:
 - Active LDAP and ForgeRock® Access Manager servers, as well as the communication between them;
 - ForgeRock® Authenticator installed on your mobile phone;
-- Authentication chain for OTP created on the AM server - [like this guide](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#authn-mfa-chain-oath); 
-- Objectclass and attributes from [oath2fa.schema](https://github.com/wjs67/pam_am_ssh_otp/blob/master/oath2fa.schema) in your LDAP server;
+- Authentication chain for OTP created on the AM server - [Follow this guide](https://backstage.forgerock.com/docs/am/6.5/authentication-guide/#authn-mfa-chain-oath); 
+- There are the objectclasses and attributes from [oath2fa.schema](https://github.com/wjs67/pam_am_ssh_otp/blob/master/oath2fa.schema) in your LDAP server;
 
 # To compile:
  ## build requires:
