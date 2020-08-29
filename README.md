@@ -4,7 +4,6 @@ Provide PAM module, configuring 2nd factor authentication on SSH with ForgeRockÂ
 The pam_am_ssh_otp.so module is installed in /lib64/security
 
 The file /etc/pam.d/sshd would then look like:
-
 ~~~
 #%PAM-1.0
 auth        required    pam_debug.so
@@ -16,6 +15,13 @@ auth        sufficient  pam_unix.so
 auth        requisite   pam_ldap.so use_first_pass
 ## auth 	required 	pam_am_ssh_otp.so "am_url+path_rest_api+myrealm2fa" cacerts="path_cacerts" otp_size="var_otp_size"
 auth        required    pam_am_ssh_otp.so am_url=https://myserverAM:8443/openam/json/realms/root/authenticate?realm=my2fa cacerts=/etc/ssl/certs/chain_myAC.pem otp_size=6
+~~~
+
+Check this parameters in /etc/ssh/sshd_config
+~~~
+AuthenticationMethods keyboard-interactive:pam
+ChallengeResponseAuthentication yes
+UsePAM yes
 ~~~
 
 Configuration settings:
