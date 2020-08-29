@@ -19,9 +19,7 @@ auth        required    pam_am_ssh_otp.so am_url=https://myserverAM:8443/openam/
 ~~~
 
 Configuration settings:
-
 Config | Meaning | Example
-
 --- | --- | ---
 am_url | AM host + Port SSL | am_url=https://myserverAM:8443
 path_rest_api | Fixed value for REST endpoint | /openam/json/realms/root/authenticate?realm=
