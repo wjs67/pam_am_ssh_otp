@@ -266,8 +266,8 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
 
     /*** Get arguments from /etc/pam.d/sshd ***/
     for ( i=0; i<argc;i++){
-        if (!strncmp("am_url=", argv[i], 9)) {
-           am_url = argv[i]+9;
+        if (!strncmp("am_url=", argv[i], 7)) {
+           am_url = argv[i]+7;
                 } else if (!strncmp("cacerts=", argv[i], 8)) {
                                 cacerts = argv[i]+8;
                 }  else if (!strncmp("otp_size=", argv[i], 9)) {
