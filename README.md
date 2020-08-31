@@ -48,8 +48,7 @@ auth        requisite   pam_nologin.so
 auth        required    pam_env.so debug
 auth        optional    pam_group.so
 auth        sufficient  pam_unix.so
-auth        requisite   pam_ldap.so use_first_pass
-auth 	required 	pam_am_ssh_otp.so "am_url+path_rest_api+myrealm2fa" cacerts="path_cacerts" otp_size="var_otp_size"
+auth 	      requisite 	pam_am_ssh_otp.so "am_url+path_rest_api+myrealm2fa" cacerts="path_cacerts" otp_size="var_otp_size"
 ~~~
 
 Module pam_am_ssh_otp parameters:
